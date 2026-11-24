@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.com/npm/boostrap-icon@1.11.3./font/bootstrap-icons.min.css">
+<div class="admin-layout" [class.sidebar-mini]="sidebarContraido">
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">A</div>
+            <div class="brand-text">ANGULAR TDS</div>
+        </div>
+        <!-- ESTRUCUTURA DEL SIDEBAR -->
+        <div class="sidebar-content">
+            <div class="menu-block">
+                <div class="menu-item menu-item-main" (click)="toggleDashboard()">
+                    <div class="menu-left">
+                        <span class="menu-icon">֍</span>
+                        <span class="menu-label">Dashboard</span>
+                    </div>
+                    <span class="menu-arrow">{{dashboardAbierto? '▼':'►'}}</span>
+                </div>
+                <div class="submenu" *ngIf="dashboardAbierto">
+                    <div class="submenu-item " (click)="cargarDetalleEjecucion()">
+                        <span class="menu-circle">●</span>
+                        <span class="menu-labe"> Ejecuciones</span>
+                    </div>
+                    <div class="submenu-item">
+                        <span class="menu-circle ">●</span>
+                        <span class="menu-labe "> Dashboard 2</span>
+                    </div>
+                    <div class="submenu-item">
+                        <span class="menu-circle ">●</span>
+                        <span class="menu-labe "> Dashboard 3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- ESTRUTURA DEL TOGGLE -->
+    <div class="main-wrapper">
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" (click)="toggleSidebar()">≡</button>
+                <a href="#">Home</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="topbar-rigth">
+                <span class="top-icon"></span>
+                <div class="user-info">
+                    <div class="avatar"></div>
+                    <span>{{usuario}}</span>
+                </div>
+            </div>
+        </header>
+        <!-- ESTRUCUTURA DEL MAIN - TABLA-->
+        <main class="content-area">
+            <div *ngIf="cargando">
+                <h2>Seleccion una opcion del menu</h2>
+            </div>
+            <div *ngIf="cargando && !mostraTabla">
+                <h2>Cargando la informacion</h2>
+            </div>
+            <div *ngIf="error">
+                <h2>Error</h2>
+            </div>
+            <div class="tabla-container">
+                <div class="encabezado-listado" *ngIf="mostraTabla && !cargando">
+                    <h2>Listado de Ejecuciones</h2>
+                    <button type="button" class="btn-agregar" title="Agregar Ejecucion" (click)="agregarDetalle()">
+                    <i class="bi bi-plus-lg" aria-hidden="true"></i>
+                </button>
+                <a href="http://laptop-jqvela03/ReportServer/Pages/ReportViewer.aspx?%2fPIR_Ejecucion%2fRptEjecuciones&rs:Command=Render">Reporte</a>
+                </div>
+                <table class="tabla" *ngIf="mostraTabla && !cargando && detalleEjecuciones.length>0">
+                    <thead>
+                        <tr>
+                            <th align="center">ID</th>
+                            <th align="center">CLIENTE</th>
+                            <th align="center">DESCIRPCION</th>
+                            <th align="center">CANTIDAD</th>
+                            <th align="center">IMPORTE</th>
+                            <th align="center">IGV</th>
+                            <th align="center">TOTAL</th>
+                            <th align="center">REGISTRO</th>
+                            <th align="center">OPCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of detalleEjecuciones">
+                            <td align="center">{{item.idDetalleEjecucion}}</td>
+                            <td align="center">{{item.idCabeceraEjecucion}}</td>
+                            <td align="center">{{item.descripcion}}</td>
+                            <td align="center">{{item.cantidad}}</td>
+                            <td align="center">{{item.importe}}</td>
+                            <td align="center">{{item.igv}}</td>
+                            <td align="center">{{item.total}}</td>
+                            <td align="center">{{item.registro}}</td>
+                            <td>
+                                <button class="btn-editar" type="button" title="Editar ejecucion" (click)="editarDetalle(item.idDetalleEjecucion)">
+
+                                  <i class="bi bi-pencil-fill"></i></button>
+                                <button class="btn-detalle" (click)="verDetalle(item.idDetalleEjecucion)"> <i class="bi bi-eye-fill"></i></button>
+                                <button class="btn-eliminar" (click)="eliminarDetalle(item.idDetalleEjecucion)"> <i class=" bi bi-trash-fill "></i></button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <!-- ESTRUCTURA DEL PIE DE PAGINA -->
+        <footer class="footer ">
+            <span>
+              copyright @ 2026 <strong> INGENIERIA INFORMATICA</strong>
+              All Rights Reserved
+            </span>
+        </footer>
+    </div>
+</div>

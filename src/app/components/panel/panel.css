@@ -1,0 +1,549 @@
+/* Configuración general */
+
+:host {
+    display: block;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* Contenedor administrativo */
+
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f6f9;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Barra lateral */
+
+.sidebar {
+    width: 270px;
+    flex-shrink: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #343a40;
+    color: #c2c7d0;
+    border-right: 1px solid #454d55;
+    overflow: hidden;
+    transition: width 0.3s ease;
+}
+
+
+/* Logo */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 20px;
+    border-bottom: 1px solid #454d55;
+    white-space: nowrap;
+}
+
+.brand-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #d7dadf;
+    color: #343a40;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.brand-text {
+    color: #f8f9fa;
+    font-size: 1.1rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+
+/* Contenido del menú */
+
+.sidebar-content {
+    flex: 1;
+    padding: 14px 10px;
+    overflow-y: auto;
+}
+
+.menu-block {
+    margin-bottom: 14px;
+}
+
+.menu-section-title {
+    margin: 18px 14px 12px;
+    font-size: 0.85rem;
+    color: #adb5bd;
+    white-space: nowrap;
+}
+
+
+/* Opciones principales */
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background-color: #3f474e;
+    color: #fff;
+}
+
+.menu-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.menu-icon {
+    width: 18px;
+    flex-shrink: 0;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.menu-label {
+    white-space: nowrap;
+}
+
+.menu-arrow {
+    flex-shrink: 0;
+    color: #c2c7d0;
+}
+
+
+/* Submenú */
+
+.submenu {
+    margin-top: 6px;
+}
+
+.submenu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px 12px 26px;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    color: #c2c7d0;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.submenu-item:hover {
+    background-color: #3f474e;
+    color: #fff;
+}
+
+.submenu-item.active {
+    background-color: #525a61;
+    color: #fff;
+}
+
+
+/* Círculo dibujado con CSS */
+
+.submenu-circle {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+
+/* Círculo utilizado en tu HTML */
+
+.menu-circle {
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+
+/* Zona principal */
+
+.main-wrapper {
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Barra superior */
+
+.topbar {
+    height: 64px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 18px;
+    background-color: #fff;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.menu-toggle {
+    padding: 4px;
+    border: none;
+    background: transparent;
+    color: #495057;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.topbar-left a {
+    text-decoration: none;
+    color: #495057;
+    font-size: 1rem;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #495057;
+}
+
+.top-icon {
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+
+/* Contadores */
+
+.badge {
+    padding: 1px 6px;
+    margin-right: 4px;
+    border-radius: 10px;
+    background-color: #dc3545;
+    color: #fff;
+    font-size: 0.7rem;
+}
+
+.badge-yellow {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+
+/* Usuario */
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 8px;
+    white-space: nowrap;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #9aa0a6, #6c757d);
+}
+
+
+/* Área de contenido */
+
+.content-area {
+    flex: 1;
+    min-width: 0;
+    background-color: #f4f6f9;
+}
+
+
+/* Contenedor de la tabla */
+
+.tabla-container {
+    margin: 24px;
+    min-height: 380px;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    overflow-x: auto;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Título y botón Agregar */
+
+.encabezado-listado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px;
+}
+
+.encabezado-listado h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #343a40;
+}
+
+
+/* Tabla */
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 14px;
+}
+
+.tabla th {
+    padding: 12px;
+    background: #343a40;
+    color: #fff;
+    text-align: center;
+}
+
+.tabla td {
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tabla tbody tr:hover {
+    background: #f1f3f5;
+}
+
+
+/* Columna de opciones */
+
+.tabla th:last-child,
+.tabla td:last-child {
+    white-space: nowrap;
+}
+
+.acciones-columna {
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+/* Agrupación de botones, si utilizas estas clases */
+
+.acciones {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.acciones.botones {
+    justify-content: center;
+    gap: 8px;
+}
+
+
+/* Tamaño uniforme de los botones */
+
+.btn-agregar,
+.btn-editar,
+.btn-detalle,
+.btn-eliminar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+
+/* Iconos uniformes */
+
+.btn-agregar i,
+.btn-editar i,
+.btn-detalle i,
+.btn-eliminar i {
+    color: #fff;
+    font-size: 0.8rem;
+    line-height: 1;
+}
+
+
+/* Agregar */
+
+.btn-agregar {
+    background-color: #198754;
+}
+
+.btn-agregar:hover:not(:disabled) {
+    background-color: #157347;
+}
+
+
+/* Editar */
+
+.btn-editar {
+    background-color: #0d6efd;
+}
+
+.btn-editar:hover:not(:disabled) {
+    background-color: #0b5ed7;
+}
+
+
+/* Detalle */
+
+.btn-detalle {
+    background-color: #ffc107;
+}
+
+.btn-detalle:hover:not(:disabled) {
+    background-color: #e0a800;
+}
+
+
+/* Eliminar */
+
+.btn-eliminar {
+    background-color: #dc3545;
+}
+
+.btn-eliminar:hover:not(:disabled) {
+    background-color: #bb2d3b;
+}
+
+
+/* Accesibilidad y estado deshabilitado */
+
+.btn-agregar:focus-visible,
+.btn-editar:focus-visible,
+.btn-detalle:focus-visible,
+.btn-eliminar:focus-visible,
+.menu-toggle:focus-visible {
+    outline: 3px solid #86b7fe;
+    outline-offset: 3px;
+}
+
+.btn-agregar:disabled,
+.btn-editar:disabled,
+.btn-detalle:disabled,
+.btn-eliminar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* Footer */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    background-color: #fff;
+    border-top: 1px solid #dee2e6;
+    color: #495057;
+}
+
+
+/* Barra lateral contraída */
+
+.admin-layout.sidebar-mini .sidebar {
+    width: 78px;
+}
+
+.admin-layout.sidebar-mini .brand {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.admin-layout.sidebar-mini .brand-text,
+.admin-layout.sidebar-mini .menu-section-title,
+.admin-layout.sidebar-mini .menu-label,
+.admin-layout.sidebar-mini .menu-arrow {
+    display: none;
+}
+
+.admin-layout.sidebar-mini .menu-item,
+.admin-layout.sidebar-mini .submenu-item {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+/* Adaptación para pantallas pequeñas */
+
+@media (max-width: 900px) {
+    .topbar-left {
+        gap: 12px;
+    }
+    .topbar-left a {
+        display: none;
+    }
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .tabla-container {
+        margin: 12px;
+    }
+    .encabezado-listado {
+        padding: 12px;
+    }
+    .encabezado-listado h2 {
+        font-size: 18px;
+    }
+    .topbar {
+        padding: 0 12px;
+    }
+    .user-info {
+        gap: 6px;
+        margin-left: 0;
+        font-size: 13px;
+    }
+    .avatar {
+        width: 28px;
+        height: 28px;
+    }
+}

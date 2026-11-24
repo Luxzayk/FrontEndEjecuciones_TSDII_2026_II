@@ -1,0 +1,103 @@
+<div class="pagina-eliminar ">
+  <header class="barra-superior">
+    <span class="marca">Angular TDS2</span>
+      <button class="btn-volver" type="button" [disabled]="eliminado" (click)="volver()">
+        <i class="bi bi-arrow-left-circle"></i>
+        Volver al Panel
+      </button>
+  </header>
+  <main class="area-principal">
+    <section class="tarjeta-eliminar">
+      <header class="encabezado">
+        <h1>Eliminar Ejecucion</h1>
+        <span *ngIf="detalle">
+          detalle #{{detalle.idDetalleEjecucion}}
+        </span>
+      </header>
+      <div class="contenido">
+        <p *ngIf="cargando" class="aviso" role="status" >
+          Cargando la informacion
+        </p>
+        <div *ngIf="error" class="alerta-error" role="alert">
+          <i class=" bi bi-exclamation-triangle" aria-hidden="true"></i>
+          {{error}}
+        </div>
+        <div *ngIf="eliminado">
+          <div class="alert exito" role="status">
+            <i class="bi bi-check-circle"> </i>
+            Ejecucion eliminada correctamente
+          </div>
+          <div class="acciones">
+            <button type="button" class="btn-volver" (click)="volver()">
+              <i class="bi bi-list-ul"></i>
+              Volver al listado
+            </button>
+          </div>
+        </div>
+        <div *ngIf="detalle as item">
+          <div class="alerta advertencia">
+            <i class="bi bi-exclamation-triangle"></i>
+            Desea eliminar esta ejecucion? esta accion no se puede deshacer
+          </div>
+            <div class="datos-registro">
+              <span>
+                <strong>Id del detalle:</strong>
+                {{item.idDetalleEjecucion}}
+              </span>
+              <span>
+                <strong>Id cabecera:</strong>
+                {{item.idCabeceraEjecucion}}
+              </span>
+              <span>
+                <strong>Registro</strong>
+                {{item.registro|date:'dd/MM/yyyy HH:mm'}}
+              </span>
+            </div>
+            <div class="campo">
+              <span class="etiqueta">Descripcion </span>
+              <span class="valor">{{item.descripcion}} </span>
+            </div>
+            <div class="cuadricula">
+              <div class="campo">
+                <span class="etiqueta">Cantidad</span>
+                <span class="valor">{{item.cantidad}}</span>
+              </div>
+              <div class="campo">
+                <span class="etiqueta">Importe</span>
+                <span class="valor">{{item.importe | number:'1.2-2'}}</span>
+              </div>
+              <div class="campo">
+                <span class="etiqueta">
+                  IGV
+                </span>
+                <span class="valor">
+                  {{item.igv | number:'1.2-2'}}
+                </span>
+              </div>
+              <div class="campo">
+                <span class="etiqueta">
+                  Total
+                </span>
+                <span class="valor">
+                  {{item.total | number:'1.2-2'}}
+                </span>
+              </div>
+            </div>
+          <div class="acciones">
+            <button type="button" class="btn-cancelar" [disabled]="eliminado" (click)="volver()">
+              <i class="bi bi-arrow-left-circle"></i>
+              Cancelar
+            </button>
+            <button type="button" class="btn-cancelar" [disabled]="eliminando" (click)="confirmarEliminar()">
+              <i class="bi bi-arrow-left-circle" [ngClass]="eliminado? 'bi-hourglass-split':'bi-trash'"></i>
+              {{eliminado? 'Elimanado...':'Confirmar eliminacion'}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="pie">
+     copyright @2026 <strong> Ingenieria informatica</strong>
+  </footer>
+</div>

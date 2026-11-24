@@ -1,0 +1,345 @@
+/*Configuración general del componente*/
+
+:host {
+    display: block;
+    font-family: Arial, sans-serif;
+    color: #343a40;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.pagina-detalle {
+    min-height: 100vh;
+    background: #f4f6f9;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*Barra superior similar a la del panel*/
+
+.barra-superior {
+    min-height: 76px;
+    background: #fff;
+    border-bottom: 1px solid #dee2e6;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.marca {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+/*Contenido centrado*/
+
+.contenido {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 36px 28px;
+    flex: 1;
+}
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.ruta {
+    font-size: 14px;
+    color: #6c757d;
+    margin: 0 0 10px;
+}
+
+h1 {
+    font-size: 30px;
+    margin: 0 0 10px;
+}
+
+.subtitulo {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #6c757d;
+}
+
+.identificador {
+    background: #e8f0ff;
+    color: #0d6efd;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/*Tarjeta principal*/
+
+.tarjeta {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.tarjeta-header {
+    background: #343a40;
+    color: #fff;
+    padding: 20px 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.tarjeta-header h2 {
+    margin: 0;
+    font-size: 19px;
+}
+
+.tarjeta-header span {
+    font-size: 14px;
+    color: #dee2e6;
+}
+
+.tarjeta-body {
+    padding: 30px 26px;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+    gap: 32px;
+    align-items: start;
+}
+
+
+/*Distribución de los datos*/
+
+.datos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.etiqueta {
+    font-size: 14px;
+    font-weight: 700;
+    color: #6c757d;
+}
+
+.valor {
+    font-size: 17px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.descripcion {
+    grid-column: 1 / -1;
+}
+
+
+/*Resumen económico*/
+
+.resumen {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.resumen h3 {
+    font-size: 17px;
+    margin: 0 0 22px;
+}
+
+.fila-importe {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 15px;
+}
+
+.fila-importe strong,
+.total strong {
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+}
+
+.total {
+    margin-top: 22px;
+    padding: 18px;
+    background: #343a40;
+    color: #fff;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.total span {
+    font-size: 14px;
+    color: #dee2e6;
+}
+
+.total strong {
+    font-size: 30px;
+}
+
+
+/*Botones y pie de tarjeta*/
+
+.tarjeta-footer {
+    padding: 18px 26px;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.tarjeta-footer span {
+    color: #6c757d;
+    font-size: 13px;
+}
+
+.btn-volver {
+    background: #0d6efd;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-volver:hover {
+    background: #0b5ed7;
+}
+
+.btn-volver:focus-visible {
+    outline: 3px solid #86b7fe;
+    outline-offset: 3px;
+}
+
+.mensaje {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 24px;
+}
+
+.mensaje-error {
+    color: #842029;
+    background: #f8d7da;
+    border-color: #f5c2c7;
+}
+
+.pie {
+    background: #fff;
+    border-top: 1px solid #dee2e6;
+    padding: 22px 32px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/*Adaptación para celulares*/
+
+@media (max-width: 768px) {
+    .barra-superior {
+        padding: 16px;
+    }
+    .contenido {
+        padding: 24px 16px;
+    }
+    .encabezado,
+    .tarjeta-header,
+    .tarjeta-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    h1 {
+        font-size: 25px;
+    }
+    .tarjeta-body {
+        grid-template-columns: 1fr;
+        padding: 22px;
+        gap: 24px;
+    }
+    .datos {
+        grid-template-columns: 1fr;
+    }
+    .tarjeta-footer .btn-volver {
+        width: 100%;
+    }
+    .pie {
+        padding: 20px 16px;
+    }
+}
+
+
+/* El contenedor ocupa todo el ancho disponible */
+
+.encabezado {
+    display: block;
+    width: 100%;
+}
+
+.tarjeta {
+    width: 100%;
+}
+
+
+/* Ampliamos el área principal */
+
+.contenido {
+    max-width: 1500px;
+}
+
+
+/* Reducimos los espacios internos */
+
+.tarjeta-header {
+    padding: 12px 20px;
+}
+
+.tarjeta-body {
+    padding: 16px 20px;
+    gap: 14px 24px;
+}
+
+.campo {
+    gap: 4px;
+    padding-bottom: 8px;
+}
+
+.resumen {
+    padding: 14px;
+}
+
+.resumen h3 {
+    margin-bottom: 10px;
+}

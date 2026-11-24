@@ -1,0 +1,109 @@
+<div class="pagina-registrar">
+    <header class="barra-superior">
+        <span class="marca">Angular-TDS</span>
+        <button type="button" class="btn-volver" [disabled]="guardando" (click)="volver()">
+          <i class="bi bi-arrow-left-circle" aria-hidden="true"></i>
+          Volver al Panel
+        </button>
+    </header>
+    <main class="area-principal">
+        <section class="tarjeta-registrar">
+            <header class="encabezado">
+                <h1>Registar Ejecucion</h1>
+                <span>Nuevo Registro</span>
+            </header>
+            <div class="contenido">
+                <div *ngIf="error" class="alerta error" role="alert">
+                    <i class="bi bi-exclamation-triangle" aria-hidden="true"></i> {{error}}
+                </div>
+                <div *ngIf="mensaje" class="alerta exito" role="status">
+                    <i class="bi bi-check-cicle" aria-hidden="true"></i> {{mensaje}}
+                </div>
+                <form #formulario="ngForm" (ngSubmit)="guardar(formulario)">
+                    <fieldset [disabled]="guardando || registrando">
+                        <div class="cuadricula">
+                            <div class="campo">
+                                <label for="idCabeceraEjecucion">
+                                  ID Cabecera
+                                </label>
+                                <input type="number" name="idCabeceraEjecucion" id="idCabeceraEjecucion" required min="1" step="1" pattern="[0-9]+" [(ngModel)]="datos.idCabeceraEjecucion" #cabecera="ngModel" id=" ">
+                                <small class="validacion" *ngIf="cabecera.invalid && (cabecera.touched || formulario.submitted)">
+                                  Ingrese id Cabecera
+                                </small>
+                            </div>
+                            <div class="campo">
+                                <label for="registro">
+                                  Fecha
+                                </label>
+                                <input type="datetime-local" name="registro" required step="60" [(ngModel)]="datos.registro " #registro="ngModel" id="registro">
+                                <small class=" validacion " *ngIf="registro.invalid && (registro.touched || formulario.submitted) ">
+                                  Seleccione la fecha
+                                </small>
+                            </div>
+                        </div>
+                        <div class="campo">
+                            <label for="descripcion">Descripcion</label>
+                            <textarea name="descripcion" id="descripcion" rows="2" required maxlength="150" pattern="[\s\S]*\S[\s\S]*" [(ngModel)]="datos.descripcion" #descripcion="ngModel">
+                            </textarea>
+                            <small class="validacion" *ngIf="descripcion.invalid && (descripcion.touched || formulario.submitted)">
+                              Ingrese un description valida de hasta 150 caracteres
+                            </small>
+                        </div>
+                        <div class="cuadricula">
+                            <div class="campo">
+                                <label for="cantidad">Cantidad</label>
+                                <input type="number" id="cantidad" name="cantidad" required min="1" step="1" pattern="[0-9]+" [(ngModel)]="datos.cantidad" #cantidad="ngModel">
+                                <small class="validacion" *ngIf="cantidad.invalid && (cantidad.touched || formulario.submitted)">
+                                  Ingrese una cantidad mayor o igual a 1
+                                </small>
+                            </div>
+                            <div class="campo">
+                                <label for="importe">Importe</label>
+                                <input type="number" id="importe" name="importe" required min="0" step="0.01" [(ngModel)]="datos.importe" #importe="ngModel">
+                                <small class="validacion" *ngIf="importe.invalid &&
+                                (importe.touched || formulario.submitted)">
+                                Ingrese un valor igual o mayor a 0
+                                </small>
+                            </div>
+                            <div class="campo">
+                                <label for="igv">Igv</label>
+                                <input type="number" id="igv" name="igv" required min="0 " step="0.01 " [(ngModel)]="datos.igv " #igv="ngModel">
+                                <small class="validacion " *ngIf="igv.invalid &&
+                                (igv.touched || formulario.submitted) ">
+                                  Ingrese correctamente el valor del IGV
+                                </small>
+                            </div>
+                            <div class="campo">
+                                <label for="total">Igv Total</label>
+                                <input type="number" id="total" name="total" required min="0 " step="1 " [(ngModel)]="datos.total " #total="ngModel">
+                                <small class="validacion " *ngIf="total.invalid && (total.touched || formulario.submitted) ">
+                                  Ingrese una cantidad entera mayor o igual a 1
+                                </small>
+                            </div>
+                        </div>
+                        <div class="acciones" *ngIf="!registrando">
+                            <button type="button" class="btn-cancelar" [disabled]="guardando" (click)="volver()">
+                              <i class="bi bi-arrow-left-circle" aria-hidden="true"></i>
+                              Cancelar
+                            </button>
+                            <button type="submit" class="btn-guardar" [disabled]="guardando">
+                              <i class="bi" [ngClass]="guardando? 'bi-hourglass-split':'bi-flooppy'" aria-hidden="true"></i>
+                              {{guardando?'guardando....':'Guardar Ejecucion'}}
+                            </button>
+                        </div>
+                    </fieldset>
+                </form>
+                <div class="acciones" *ngIf="!registrando">
+                    <button type="button" class="btn-volver" (click)="volver()">
+                      <i class="bi bi-list-ul" aria-hidden="true"></i>
+                      Volver al Listado
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="pie">
+        Copyright &copy;2026
+        <strong>Ingenieria Informatica</strong> All Rights Reserved
+    </footer>
+</div>

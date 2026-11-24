@@ -1,0 +1,65 @@
+<div class="pagina-detalle">
+    <header class="barra-superior">
+        <span class="marca">Angular-TDS </span>
+        <button type="button" class="btn-volver" (click)="regresar()"> Volver al Panel</button>
+    </header>
+    <main class="contenido">
+        <div class="encabezado">
+
+            <div class="mensaje" *ngIf="cargando" role="status">
+                cargando la informacion...
+            </div>
+            <div class="mensaje mensaje-error" *ngIf="error && !cargando" role="alert">
+                {{error}}
+            </div>
+            <section class="tarjeta" *ngIf="detalle && !cargando && !error">
+                <div class="tarjeta-header">
+                    <h2>Informacion de la ejecucion</h2>
+                    <span>Detalle #{{detalle.idDetalleEjecucion}}</span>
+                </div>
+                <div class="tarjeta-body">
+                    <div class="campo">
+                        <span class="etiqueta">ID</span>
+                        <span class="valor">{{detalle.idDetalleEjecucion}}</span>
+                    </div>
+                    <div class="campo">
+                        <span class="etiqueta">Registro</span>
+                        <span class="valor">{{detalle.registro|date:'dd/MM/yyyy HH:mm'}}</span>
+                    </div>
+                    <div class="campo">
+                        <span class="etiqueta">Descripcion</span>
+                        <span class="valor">{{detalle.descripcion}}</span>
+                    </div>
+                    <div class="campo">
+                        <span class="etiqueta">Cantidad</span>
+                        <span class="valor">{{detalle.cantidad}}</span>
+                    </div>
+                    <div class="resumen">
+                        <h3>Resumen de importes</h3>
+                        <div class="fila-importe">
+                            <span>Importe</span>
+                            <strong>{{detalle.importe | number:'1.2-2'}}</strong>
+                        </div>
+                        <div class="fila-importe">
+                            <span>IGV</span>
+                            <strong>{{detalle.igv | number:'1.2-2'}}</strong>
+                        </div>
+                        <div class="fila-importe">
+                            <span>Total</span>
+                            <strong>{{detalle.total | number:'1.2-2'}}</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="tarjeta-footer">
+                    <span>
+                      Informacion del registro selleccionado
+                    </span>
+                    <button type="button" class="btn-volver" (click)="regresar()"> Volver al Panel</button>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="pie ">
+        Copyright @ 2026 <strong>Ingenieria Informatica</strong>
+    </footer>
+</div>
